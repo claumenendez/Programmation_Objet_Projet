@@ -12,4 +12,6 @@ Le tanque est composé de:
   - lcd
 Vous pourrez trouver les fichiers hpp et cpp respectifs dans le fichier. 
 
+Cablage LCD:
 
+![cablage LCD](https://user-images.githubusercontent.com/98877212/236453315-6d3aff3d-5372-46ff-b9d0-8fc7f4e60fad.jpg)
