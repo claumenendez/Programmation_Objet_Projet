@@ -1,6 +1,7 @@
 #ifndef CONSTANTE_BUZZER_H
 #define CONSTANTE_BUZZER_H
 
+
 extern bool musicbuz;
 //constantes buzzer
 

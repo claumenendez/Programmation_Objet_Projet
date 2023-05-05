@@ -13,6 +13,7 @@ class Ecran: public DangerMode {
     Ecran();
     Ecran(String m);
     void DangerModeActivation(String m);
+    void clear(){mylcd.clear();}
 };
 
 #endif

@@ -27,5 +27,6 @@ void setup() {
   }
 
 void loop() {
-   MyirReceiver.processIR(&MyMotor);
+   //MyirReceiver.processIR(&MyMotor);
+   digitalWrite(11,HIGH);
  }
