@@ -5,27 +5,30 @@
 
 
 
-class ServoMotor{
+/*
+
+class ServoMotor1 {
   private: 
     int angle;
     int pin;
-    Servo *sr;
+    Servo sr;
     
   public:
-
-     ServoMotor(int p){
-      this->sr = new Servo();
-      this->pin=p;
-      this->sr->attach(pin);
-      }
-
-     void rotation(int b){
-        this->sr->write(0);
-        delay(500); 
-        Serial.println(b);
-        this->sr->write(b); 
-        Serial.println("hola");
-      }
-     
-  };
+    ServoMotor1(int p) {
+      pin = p;
+      sr.attach(pin);
+      angle = 0;
+    }
+    
+    void setAngle(int a) {
+      angle = a;
+      sr.write(angle);
+    }
+    
+    int getAngle() {
+      return angle;
+    }
+    
+};
+*/
 #endif

@@ -47,6 +47,8 @@ class DcMotor: public Motor{
     void stopMotor();
     void Demarrer();
   };
+
+
 /*
 class ServoMotor: public Motor{
   protected:

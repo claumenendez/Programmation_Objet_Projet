@@ -8,8 +8,8 @@
 #define PIN_Motor_AIN_1 7
 #define PIN_Motor_STBY 3
 #define speed_Max 255
-#define PIN_Servo1 11
-#define PIN_Servo2 10
+#define PinServo1 11
+#define PinServo2 10
 
 
 //constantes ir receiver

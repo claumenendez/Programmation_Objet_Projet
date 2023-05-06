@@ -53,6 +53,7 @@ void DcMotor::AllStraight(){
   digitalWrite(PIN_Motor_BIN_1, HIGH);
   analogWrite(PIN_Motor_PWMA, getVitesse());
   analogWrite(PIN_Motor_PWMB, getVitesse());
+  Serial.println("ssss");
   }
 void DcMotor::stopMotor(){
   setVitesse(0);
@@ -61,7 +62,7 @@ void DcMotor::stopMotor(){
   digitalWrite(PIN_Motor_BIN_1, LOW);
   }
 void DcMotor::Demarrer(){
-  setVitesse(200);
+  setVitesse(100);
   digitalWrite(PIN_Motor_STBY, HIGH);
   digitalWrite(PIN_Motor_AIN_1, HIGH);
   digitalWrite(PIN_Motor_BIN_1, HIGH);  

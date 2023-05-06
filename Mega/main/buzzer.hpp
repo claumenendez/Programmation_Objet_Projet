@@ -12,6 +12,7 @@ class Buzzer:public DangerMode{
     Buzzer(int p);
     int getPin(){return pin;}
     void DangerModeActivation(String m);
+    ~Buzzer(){}
 };
 void playStarsWars();  
 #endif
