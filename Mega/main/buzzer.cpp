@@ -1,28 +1,23 @@
 #include "buzzer.hpp"
 
-Buzzer::Buzzer(int p){pin=p;}
-void Buzzer::DangerModeActivation(String m){
-  if (m=="STARS WARS"){
-      playStarsWars();  
-    }
-  }
-
-
+//chanson Grame of Thrones: tableau des notes a reproduire sur le buzzer
 int GAME[] = {
-
   // Game of Thrones
   // Score available at https://musescore.com/user/8407786/scores/2156716
-
   NOTE_G4,8, NOTE_C4,8, NOTE_DS4,16, NOTE_F4,16, NOTE_G4,8, NOTE_C4,8, NOTE_DS4,16, NOTE_F4,16, //1
   NOTE_G4,8, NOTE_C4,8, NOTE_DS4,16, NOTE_F4,16, NOTE_G4,8, NOTE_C4,8, NOTE_DS4,16, NOTE_F4,16,
 
 };
-  
+
+Buzzer::Buzzer(int p){pin=p;}
+void Buzzer::DangerModeActivation(String m){
+  if (m=="GAME OF THRONES"){
+      playGameofThrones();  
+    }
+}
 
 
-
-
-void playStarsWars(){
+void playGameofThrones(){
     pinMode(buz, OUTPUT); 
     int tempo = 85;
     int notes = sizeof(GAME) / sizeof(GAME[0]) / 2;

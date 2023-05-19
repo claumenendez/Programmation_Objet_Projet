@@ -1,4 +1,8 @@
 #include "motor.hpp"
+#include "constants.h"
+extern bool exceptionActivated2;
+extern bool exceptionActivated1;
+
 
 DcMotor:: DcMotor(){
   Vitesse=0;
@@ -11,8 +15,8 @@ DcMotor:: DcMotor(){
   analogWrite(PIN_Motor_PWMA, Vitesse);}
 
 DcMotor::DcMotor(int s){
-      if(s>speed_Max){Vitesse=speed_Max;}
-      else if (s<0){Vitesse=0;}
+      if(s>speed_Max){exceptionActivated1=true;Vitesse=speed_Max;}
+      else if (s<0){exceptionActivated2=true;Vitesse=0;}
       else{Vitesse=s;}
       pinMode(PIN_Motor_STBY, OUTPUT);
       pinMode(PIN_Motor_PWMA, OUTPUT);
@@ -23,8 +27,8 @@ DcMotor::DcMotor(int s){
       analogWrite(PIN_Motor_PWMA, Vitesse);}
 
 void DcMotor::setVitesse(int s){
-  if(s>speed_Max){Vitesse=speed_Max;}
-  else if (s<0){Vitesse=0;}
+  if(s>speed_Max){exceptionActivated1=true;Vitesse=speed_Max;}
+  else if (s<0){exceptionActivated2=true;Vitesse=0;}
   else{Vitesse=s;}
   //analogWrite(PIN_Motor_PWMA, Vitesse);
   }
@@ -66,4 +70,13 @@ void DcMotor::Demarrer(){
   digitalWrite(PIN_Motor_STBY, HIGH);
   digitalWrite(PIN_Motor_AIN_1, HIGH);
   digitalWrite(PIN_Motor_BIN_1, HIGH);  
+  }
+  
+void DcMotor:: addVitesse(int v) {
+    *this = *this + v;
+}
+DcMotor DcMotor::operator+(int v) const {
+    DcMotor result(*this);
+    result.Vitesse += v;
+    return result;
   }

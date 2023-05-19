@@ -1,14 +1,11 @@
-#include "buzzer.hpp"
-#include "danger_mode.hpp"
-#include "lcd.hpp"
-#include "constante_buzzer.h"
+#include "main.hpp"
 
-#define PinBuzin 24
-#define PinBuzout 22
-#define PinLcd 10
-#define PinDesactivate 30
-//#define PinLed 7
+//declaration des bool qui permettent un bon enchainement entre les modes danger et happy
+bool actualizarTexto=true;
+bool pausa=true; 
+bool a=false;
 
+//declaration des objets Myecran et Mybuzzer  
 Ecran MyEcran;
 Buzzer MyBuzzer(PinBuzout);
 
@@ -16,25 +13,23 @@ void setup(){
   pinMode(PinBuzin,INPUT);
   pinMode(PinBuzout,OUTPUT);
   pinMode(PinLcd, INPUT);
-  MyEcran.DangerModeActivation("HAPPY MODE!");
-  //pinMode(PinLed,INPUT);
   Serial.begin(9600);
+  MyEcran.DangerModeActivation("HAPPY MODE!"); //etat initial: happy mode
 }
-bool actualizarTexto=true;
-bool pausa=false;
-void activaraltavoz(){MyBuzzer.DangerModeActivation("STARS WARS");}
+
+void activaraltavoz(){MyBuzzer.DangerModeActivation("GAME OF THRONES");} //fonction qui appelle le mode dangerModeActivation du buzzer
+
 void loop(){
     int b=digitalRead(PinBuzin);
     int lc=digitalRead(PinLcd);
-    //int le=digitalRead(PinLed);
-    //Serial.println(lc);
-
+    
     if (lc){
       if (actualizarTexto) {
         MyEcran.clear();
         MyEcran.DangerModeActivation("DANGER MODE!");
         actualizarTexto = false;
         pausa=false;
+        if(not musicbuz){musicbuz=true;MyBuzzer.DangerModeActivation("GAME OF THRONES");
       }
     }
     if (digitalRead(PinDesactivate)and pausa==false){
@@ -42,17 +37,8 @@ void loop(){
         MyEcran.clear();
         MyEcran.DangerModeActivation("HAPPY MODE!");
         pausa=true;
-        musicbuz=false;
+        a=true;
+        MyBuzzer.DangerModeActivation("");
       }
-
-    if (b){
-      if (not musicbuz){
-        Serial.println("etsoy");
-        activaraltavoz();
-        musicbuz=true;}
-      }
-    
-
-    //if(le){}
-    
-    }
+    if (a){musicbuz=false; a=false;} 
+}

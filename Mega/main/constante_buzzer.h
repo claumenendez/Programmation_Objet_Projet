@@ -3,7 +3,7 @@
 
 
 extern bool musicbuz;
-//constantes buzzer
+//definitions des notes afin de reproduire differentes chansons sur le buzzer
 
 #define NOTE_B0  31
 #define NOTE_C1  33

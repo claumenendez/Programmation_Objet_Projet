@@ -1,6 +1,7 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+
 //constantes moteurs
 #define PIN_Motor_PWMA 5
 #define PIN_Motor_PWMB 6
@@ -13,10 +14,15 @@
 
 
 //constantes ir receiver
-//constates lcd
-#define PinBuz 11
-#define PinLcd 10
-#define PinLed 3
+const int IR_RECEIVE_PIN = 9;
 
+//constates lcd
+#define PinBuz A0
+#define PinLcd 12
+#define PinLed 3
+#define PinDesactivate 13
+
+//global variables 
+//exceptions
 
 #endif
